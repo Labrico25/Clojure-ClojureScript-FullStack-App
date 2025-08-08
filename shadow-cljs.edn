@@ -1,0 +1,22 @@
+{:source-paths ["src/cljs"]
+ :dependencies [[reagent "1.3.0"]
+                [cljs-http/cljs-http "0.1.48"]]
+ :builds
+ {:frontend
+  {:target :browser
+   :output-dir "resources/public/js"
+   :asset-path "public/js"
+   :js-options {:resolve {"react" {:target :global
+                                   :global "React"}
+                          "react-dom" {:target :global
+                                       :global "ReactDOM"}
+                          "react-dom/client" {:target :global
+                                              :global "ReactDOM"}}}
+   :modules
+   {:helpers {:entries [helpers.two]}
+    :login {:init-fn login/init-login
+            :depends-on #{:helpers}}
+    :registration {:init-fn registration/init-registration
+                   :depends-on #{:helpers}}
+    :yourpage {:init-fn yourpage/init-yourpage
+               :depends-on #{:helpers}}}}}}

@@ -1,0 +1,27 @@
+{:paths ["src/clj" "resources" "src/cljs" "src"]
+ 
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        ring/ring-core {:mvn/version "1.9.1"}
+        ring/ring-jetty-adapter {:mvn/version "1.9.1"}
+        compojure/compojure {:mvn/version "1.6.2"}
+        clj-http/clj-http {:mvn/version "3.13.0"}
+        hiccup/hiccup {:mvn/version "2.0.0-RC5"}
+        com.github.seancorfield/next.jdbc {:mvn/version "1.3.1048"}
+        org.xerial/sqlite-jdbc {:mvn/version "3.50.2.0"}}
+ 
+ :aliases
+  {:test {:extra-paths ["test/clj" "src/clj" "resources"]
+          :deps {ring/ring-core {:mvn/version "1.9.1"}
+                 ring/ring-jetty-adapter {:mvn/version "1.9.1"}
+                 compojure/compojure {:mvn/version "1.6.2"}
+                 clj-http/clj-http {:mvn/version "3.13.0"}
+                 com.github.seancorfield/next.jdbc {:mvn/version "1.3.1048"}
+                 org.xerial/sqlite-jdbc {:mvn/version "3.50.2.0"}
+                 hiccup/hiccup {:mvn/version "2.0.0-RC5"}}
+          :exec-fn test-app/run-it}
+   :build {:extra-paths ["test"]
+           :deps {com.github.seancorfield/next.jdbc {:mvn/version "1.3.1048"}
+                  org.xerial/sqlite-jdbc {:mvn/version "3.50.2.0"}
+                  org.clojure/clojure {:mvn/version "1.12.1"}
+                  io.github.clojure/tools.build {:mvn/version "0.10.9"}}
+           :ns-default build}}}
