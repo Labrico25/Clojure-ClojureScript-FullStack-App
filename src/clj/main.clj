@@ -1,6 +1,6 @@
 (ns main
-  (:require [index :refer [start-server! stop-server!]])
-  (:import index$stub)  
+  (:require [server :refer [start-server! stop-server!]])
+  (:import server$stub)  
   (:gen-class))
 
 (defn addshutdown []
@@ -10,4 +10,4 @@
 
 (defn -main []
   (addshutdown)  
-  (start-server! index$stub)) 
+  (start-server! server$stub)) 
