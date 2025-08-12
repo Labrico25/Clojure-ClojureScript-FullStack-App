@@ -1,4 +1,4 @@
-(ns index
+(ns server
   (:require [ring.adapter.jetty :as jetty]
             [compojure.core :as compojure]
             [compojure.route :as route]
@@ -23,7 +23,7 @@
 
 
 (gen-class
-   :name index$stub)
+   :name server$stub)
 
 (defn jarloc [this]
   (alter-var-root #'jar (fn [_]  
