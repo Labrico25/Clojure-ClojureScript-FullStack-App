@@ -1,6 +1,6 @@
 (ns test-app  
   (:require [clojure.test :refer :all]
-            [index :refer [start-server! stop-server! users]]
+            [server :refer [start-server! stop-server! users]]
             [clojure.java.io :refer [delete-file]]
             [clj-http.client :as http]))
 
@@ -27,7 +27,7 @@
         (str "/" dir)))))  
 
 
-(index/start-server! test-helper)
+(start-server! test-helper)
 
 
 (deftest todo-app-test
@@ -46,7 +46,7 @@
 
 (defn run-it [_]
   (let [_ (todo-app-test)]  
-    (index/stop-server!)
+    (stop-server!)
     (Thread/sleep 20000)  
     (delete-file "./local-db")))  
 
